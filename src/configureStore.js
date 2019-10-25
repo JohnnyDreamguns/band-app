@@ -1,11 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
-import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
+import { customMiddleware } from './middleware';
 
 export default function configureStore(initialState = {}, history) {
   let composeEnhancers = compose;
-  const reduxSagaMonitorOptions = {};
 
   if (process.env.NODE_ENV !== 'production' && typeof window === 'object') {
     /* eslint-disable no-underscore-dangle */
@@ -13,9 +12,7 @@ export default function configureStore(initialState = {}, history) {
       composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({});
   }
 
-  const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
-
-  const middlewares = [sagaMiddleware, routerMiddleware(history)];
+  const middlewares = [...customMiddleware, routerMiddleware(history)];
 
   const enhancers = [applyMiddleware(...middlewares)];
 
@@ -26,9 +23,7 @@ export default function configureStore(initialState = {}, history) {
   );
 
   // Extensions
-  store.runSaga = sagaMiddleware.run;
   store.injectedReducers = {};
-  store.injectedSagas = {};
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {

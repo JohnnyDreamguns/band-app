@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadBands, setPageId, clearHomepage } from './actions';
-import { useInjectSaga } from '../../utils/injectSaga';
 import { useInjectReducer } from '../../utils/injectReducer';
 import {
   selectBands,
@@ -11,7 +10,6 @@ import {
   selectNumOfPages
 } from './selectors';
 import reducer from './reducer';
-import saga from './saga';
 
 const key = 'homePage';
 
@@ -26,7 +24,6 @@ export const HomePage = ({
   clearHomepage
 }) => {
   useInjectReducer({ key, reducer });
-  useInjectSaga({ key, saga });
 
   useEffect(() => {
     loadBands(page);
