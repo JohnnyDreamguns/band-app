@@ -8,7 +8,7 @@ import reducer from './reducer';
 
 const key = 'albumPage';
 
-const AlbumPage = ({
+export const AlbumPage = ({
   albumId,
   loading,
   album,

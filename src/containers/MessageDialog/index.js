@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectMessages } from './selectors';
 
-const MessageDialog = ({ messages }) => (
+export const MessageDialog = ({ messages }) => (
   <React.Fragment>
     {messages.error && (
       <div className={'notify-box error'}>{messages.error}</div>

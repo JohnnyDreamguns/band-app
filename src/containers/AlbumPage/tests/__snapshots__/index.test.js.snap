@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AlbumPage /> should render and match the snapshot 1`] = `
+<div>
+  <div>
+    <h2>
+      Album Name
+    </h2>
+    <p>
+      Released: 
+      2009
+    </p>
+    <p>
+      Back to 
+      <ForwardRef
+        to="/band/1"
+      >
+        Band Name
+      </ForwardRef>
+    </p>
+  </div>
+</div>
+`;

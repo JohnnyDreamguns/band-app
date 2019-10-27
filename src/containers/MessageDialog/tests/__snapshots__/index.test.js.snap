@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MessageDialog /> should render and match the snapshot 1`] = `
+<React.Fragment>
+  <div
+    className="notify-box error"
+  >
+    There was an error
+  </div>
+</React.Fragment>
+`;

@@ -8,7 +8,7 @@ import reducer from './reducer';
 
 const key = 'bandPage';
 
-const BandPage = ({
+export const BandPage = ({
   band,
   albums,
   bandId,

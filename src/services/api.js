@@ -4,8 +4,8 @@ export const API_ERROR = 'API_ERROR';
 
 const serverUrl = 'http://localhost:3001';
 
-const BANDS_URL = `${serverUrl}/bands`;
-const ALBUMS_URL = `${serverUrl}/albums`;
+export const BANDS_URL = `${serverUrl}/bands`;
+export const ALBUMS_URL = `${serverUrl}/albums`;
 
 export const doRequest = ({ endpoint, params }) => {
   const requestInfo = requests[endpoint](params);
@@ -15,13 +15,15 @@ export const doRequest = ({ endpoint, params }) => {
     .then(x => new Promise(resolve => setTimeout(() => resolve(x), 200)))
     .then(response => {
       if (!response.ok) {
-        return response.json().then(data => {
-          throw new Error(data.error);
-        });
+        return response.json().then(throwError);
       }
 
       return response.json();
     });
+};
+
+export const throwError = data => {
+  throw new Error(data.error);
 };
 
 export const doRequestMulti = (...args) => {

@@ -8,7 +8,7 @@ export const initialState = {
 };
 
 /* eslint-disable default-case, no-param-reassign */
-const bandReducer = (state = initialState, action) =>
+const albumReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case SET_ALBUM_ID:
@@ -25,4 +25,4 @@ const bandReducer = (state = initialState, action) =>
     }
   });
 
-export default bandReducer;
+export default albumReducer;
