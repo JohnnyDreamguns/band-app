@@ -35,7 +35,7 @@ export const getHomepageData = ({ dispatch }) => next => async action => {
 export const getHomepageDataSuccess = ({ dispatch }) => next => action => {
   next(action);
 
-  if (action.type === `${LOAD_BANDS} ${API_SUCCESS}`) {
+  if (action.type === `${LOAD_BANDS}${API_SUCCESS}`) {
     dispatch(setBands(action.payload.results));
     dispatch(setTotalNumBands(action.payload.totalResults));
     dispatch(setBandIds(Object.keys(action.payload.results).map(x => +x)));
@@ -46,7 +46,7 @@ export const getHomepageDataSuccess = ({ dispatch }) => next => action => {
 export const getHomepageDataError = ({ dispatch }) => next => action => {
   next(action);
 
-  if (action.type === `${LOAD_BANDS} ${API_ERROR}`) {
+  if (action.type === `${LOAD_BANDS}${API_ERROR}`) {
     const msg =
       typeof action.payload === 'string'
         ? action.payload

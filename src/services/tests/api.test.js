@@ -144,7 +144,7 @@ describe('API', () => {
   describe('requestSuccessful', () => {
     it('should return a request successful action', async () => {
       expect(requestSuccessful({ type: 'Test', payload: 'Mock!' })).toEqual({
-        type: `Test ${API_SUCCESS}`,
+        type: `Test${API_SUCCESS}`,
         payload: 'Mock!',
         meta: { type: 'Test' }
       });
@@ -154,7 +154,7 @@ describe('API', () => {
   describe('requestError', () => {
     it('should return a request error action', async () => {
       expect(requestError({ type: 'Test', payload: 'Mock!' })).toEqual({
-        type: `Test ${API_ERROR}`,
+        type: `Test${API_ERROR}`,
         payload: 'Mock!',
         meta: { type: 'Test' }
       });

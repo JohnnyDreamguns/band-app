@@ -43,7 +43,7 @@ export const getAlbumById = ({ dispatch }) => next => async action => {
 export const getAlbumByIdSuccess = ({ dispatch }) => next => action => {
   next(action);
 
-  if (action.type === `${GET_ALBUM_BY_ID} ${API_SUCCESS}`) {
+  if (action.type === `${GET_ALBUM_BY_ID}${API_SUCCESS}`) {
     dispatch(setAlbums(action.payload[0].results));
     dispatch(setAlbumId(parseInt(Object.keys(action.payload[0].results)[0])));
     dispatch(setBands(action.payload[1].results));
@@ -54,7 +54,7 @@ export const getAlbumByIdSuccess = ({ dispatch }) => next => action => {
 export const getAlbumByIdError = ({ dispatch }) => next => action => {
   next(action);
 
-  if (action.type === `${GET_ALBUM_BY_ID} ${API_ERROR}`) {
+  if (action.type === `${GET_ALBUM_BY_ID}${API_ERROR}`) {
     const msg =
       typeof action.payload === 'string'
         ? action.payload

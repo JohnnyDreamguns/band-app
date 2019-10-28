@@ -1,6 +1,6 @@
 export const API_REQUEST = 'API_REQUEST';
-export const API_SUCCESS = 'API_SUCCESS';
-export const API_ERROR = 'API_ERROR';
+export const API_SUCCESS = '_API_SUCCESS';
+export const API_ERROR = '_API_ERROR';
 
 const serverUrl = 'http://localhost:3001';
 
@@ -63,14 +63,14 @@ export function doRequestSequence(...args) {
 
 export const requestSuccessful = ({ type, payload }) => {
   return {
-    type: `${type} ${API_SUCCESS}`,
+    type: `${type}${API_SUCCESS}`,
     payload,
     meta: { type }
   };
 };
 
 export const requestError = ({ type, payload }) => ({
-  type: `${type} ${API_ERROR}`,
+  type: `${type}${API_ERROR}`,
   payload: payload,
   meta: { type }
 });

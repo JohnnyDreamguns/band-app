@@ -56,7 +56,7 @@ export const mapStateToProps = (state, ownProps) => {
 };
 
 export const mapDispatchToProps = dispatch => ({
-  getAlbumById: bandId => dispatch(getAlbumById(bandId)),
+  getAlbumById: albumId => dispatch(getAlbumById(albumId)),
   clearAlbumpage: () => dispatch(clearAlbumpage())
 });
 

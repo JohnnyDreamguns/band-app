@@ -39,7 +39,7 @@ export const getBandpageData = ({ dispatch }) => next => async action => {
 export const getBandpageDataSuccess = ({ dispatch }) => next => action => {
   next(action);
 
-  if (action.type === `${GET_BAND_BY_ID} ${API_SUCCESS}`) {
+  if (action.type === `${GET_BAND_BY_ID}${API_SUCCESS}`) {
     dispatch(setBands(action.payload[0].results));
     dispatch(setBandId(parseInt(Object.keys(action.payload[0].results)[0])));
 
@@ -54,7 +54,7 @@ export const getBandpageDataSuccess = ({ dispatch }) => next => action => {
 export const getBandpageDataError = ({ dispatch }) => next => action => {
   next(action);
 
-  if (action.type === `${GET_BAND_BY_ID} ${API_ERROR}`) {
+  if (action.type === `${GET_BAND_BY_ID}${API_ERROR}`) {
     const msg =
       typeof action.payload === 'string'
         ? action.payload
