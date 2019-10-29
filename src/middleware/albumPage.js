@@ -12,7 +12,7 @@ import { setError } from '../actions/messages';
 import { catchErrors } from '../utils/catchErrors';
 import { selectFirstBand } from '../selectors/response';
 
-export const getAlbumById = ({ dispatch }) => next => async action => {
+export const getAlbumpageData = ({ dispatch }) => next => async action => {
   next(action);
 
   if (action.type === GET_ALBUM_BY_ID) {
@@ -40,7 +40,7 @@ export const getAlbumById = ({ dispatch }) => next => async action => {
   }
 };
 
-export const getAlbumByIdSuccess = ({ dispatch }) => next => action => {
+export const getAlbumpageDataSuccess = ({ dispatch }) => next => action => {
   next(action);
 
   if (action.type === `${GET_ALBUM_BY_ID}${API_SUCCESS}`) {
@@ -51,7 +51,7 @@ export const getAlbumByIdSuccess = ({ dispatch }) => next => action => {
   }
 };
 
-export const getAlbumByIdError = ({ dispatch }) => next => action => {
+export const getAlbumpageDataError = ({ dispatch }) => next => action => {
   next(action);
 
   if (action.type === `${GET_ALBUM_BY_ID}${API_ERROR}`) {
@@ -64,4 +64,8 @@ export const getAlbumByIdError = ({ dispatch }) => next => action => {
   }
 };
 
-export default [getAlbumById, getAlbumByIdSuccess, getAlbumByIdError];
+export default [
+  getAlbumpageData,
+  getAlbumpageDataSuccess,
+  getAlbumpageDataError
+];
