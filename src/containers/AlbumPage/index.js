@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAlbumById, clearAlbumpage } from './actions';
+import { useInjectSaga } from '../../utils/injectSaga';
 import { useInjectReducer } from '../../utils/injectReducer';
 import { selectLoading, selectAlbum, selectBand } from './selectors';
+import saga from './saga';
 import reducer from './reducer';
 
 const key = 'albumPage';
@@ -17,6 +19,7 @@ export const AlbumPage = ({
   clearAlbumpage
 }) => {
   useInjectReducer({ key, reducer });
+  useInjectSaga({ key, saga });
 
   useEffect(() => {
     getAlbumById(albumId);
