@@ -41,5 +41,14 @@
     "react-test-renderer": "^16.11.0",
     "redux-devtools-extension": "^2.13.8",
     "sinon": "^7.5.0"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/utils/injectReducer",
+      "<rootDir>/src/utils/injectSaga",
+      "<rootDir>/src/utils/request",
+      "<rootDir>/src/utils/sagaInjectors",
+      "<rootDir>/src/utils/reducerInjectors"
+    ]
   }
 }

@@ -7,5 +7,10 @@ exports[`<MessageDialog /> should render and match the snapshot 1`] = `
   >
     There was an error
   </div>
+  <div
+    className="notify-box info"
+  >
+    This is for info
+  </div>
 </React.Fragment>
 `;
