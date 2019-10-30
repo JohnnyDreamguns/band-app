@@ -12,14 +12,14 @@ import {
 } from '../constants';
 
 describe('AlbumPage actions', () => {
-  describe('getAlbumById', () => {
-    it('should return a GET_ALBUM_BY_ID action', () => {
-      expect(getAlbumById(1)).toStrictEqual({
-        type: GET_ALBUM_BY_ID,
-        payload: 1
-      });
-    });
-  });
+  // describe('getAlbumById', () => {
+  //   it('should return a GET_ALBUM_BY_ID action', () => {
+  //     expect(getAlbumById(1)).toStrictEqual({
+  //       type: GET_ALBUM_BY_ID,
+  //       payload: 1
+  //     });
+  //   });
+  // });
 
   describe('setAlbumId', () => {
     it('should return a SET_ALBUM_ID action', () => {

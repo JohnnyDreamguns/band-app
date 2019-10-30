@@ -122,16 +122,16 @@ describe('<HomePage />', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    it('should dispatch LOAD_BANDS when loadBands is called', () => {
-      const mockDispatch = jest.fn();
-      const { loadBands } = mapDispatchToProps(mockDispatch);
-      loadBands(1);
+    // it('should dispatch LOAD_BANDS when loadBands is called', () => {
+    //   const mockDispatch = jest.fn();
+    //   const { loadBands } = mapDispatchToProps(mockDispatch);
+    //   loadBands(1);
 
-      expect(mockDispatch.mock.calls[0][0]).toEqual({
-        type: LOAD_BANDS,
-        payload: 1
-      });
-    });
+    //   expect(mockDispatch.mock.calls[0][0]).toEqual({
+    //     type: LOAD_BANDS,
+    //     payload: 1
+    //   });
+    // });
 
     it('should dispatch SET_PAGE_ID when setPreviousPage is called', () => {
       const mockDispatch = jest.fn();

@@ -126,16 +126,16 @@ describe('<AlbumPage />', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    it('should dispatch GET_ALBUM_BY_ID when getAlbumById is called', () => {
-      const mockDispatch = jest.fn();
-      const { getAlbumById } = mapDispatchToProps(mockDispatch);
-      getAlbumById(3);
+    // it('should dispatch GET_ALBUM_BY_ID when getAlbumById is called', () => {
+    //   const mockDispatch = jest.fn();
+    //   const { getAlbumById } = mapDispatchToProps(mockDispatch);
+    //   getAlbumById(3);
 
-      expect(mockDispatch.mock.calls[0][0]).toEqual({
-        type: GET_ALBUM_BY_ID,
-        payload: 3
-      });
-    });
+    //   expect(mockDispatch.mock.calls[0][0]).toEqual({
+    //     type: GET_ALBUM_BY_ID,
+    //     payload: 3
+    //   });
+    // });
 
     it('should dispatch CLEAR_ALBUM_PAGE action when clearAlbumpage is called', () => {
       const mockDispatch = jest.fn();

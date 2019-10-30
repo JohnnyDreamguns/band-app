@@ -14,14 +14,14 @@ import {
 } from '../constants';
 
 describe('HomePage actions', () => {
-  describe('loadBands', () => {
-    it('should return a LOAD_BANDS action', () => {
-      expect(loadBands(2)).toStrictEqual({
-        type: LOAD_BANDS,
-        payload: 2
-      });
-    });
-  });
+  // describe('loadBands', () => {
+  //   it('should return a LOAD_BANDS action', () => {
+  //     expect(loadBands(2)).toStrictEqual({
+  //       type: LOAD_BANDS,
+  //       payload: 2
+  //     });
+  //   });
+  // });
 
   describe('setBandIds', () => {
     it('should return a SET_BAND_IDS action', () => {

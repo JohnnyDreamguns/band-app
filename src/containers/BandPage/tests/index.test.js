@@ -138,16 +138,16 @@ describe('<BandPage />', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    it('should dispatch GET_BAND_BY_ID when getBandById is called', () => {
-      const mockDispatch = jest.fn();
-      const { getBandById } = mapDispatchToProps(mockDispatch);
-      getBandById(2);
+    // it('should dispatch GET_BAND_BY_ID when getBandById is called', () => {
+    //   const mockDispatch = jest.fn();
+    //   const { getBandById } = mapDispatchToProps(mockDispatch);
+    //   getBandById(2);
 
-      expect(mockDispatch.mock.calls[0][0]).toEqual({
-        type: GET_BAND_BY_ID,
-        payload: 2
-      });
-    });
+    //   expect(mockDispatch.mock.calls[0][0]).toEqual({
+    //     type: GET_BAND_BY_ID,
+    //     payload: 2
+    //   });
+    // });
 
     it('should dispatch CLEAR_BAND_PAGE action when clearBandpage is called', () => {
       const mockDispatch = jest.fn();

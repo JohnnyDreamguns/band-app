@@ -1,14 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
-import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import thunk from 'redux-thunk';
 
 export default function configureStore(initialState = {}, history) {
-  const reduxSagaMonitorOptions = {};
-  const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
-
-  const middlewares = [sagaMiddleware, routerMiddleware(history)];
+  const middlewares = [thunk, routerMiddleware(history)];
 
   const enhancers = [applyMiddleware(...middlewares)];
 
@@ -19,9 +16,7 @@ export default function configureStore(initialState = {}, history) {
   );
 
   // Extensions
-  store.runSaga = sagaMiddleware.run;
   store.injectedReducers = {};
-  store.injectedSagas = {};
 
   return store;
 }
