@@ -4,7 +4,7 @@ import { setBandIds, setLoading } from './actions';
 import { setError } from '../../actions/messages';
 import { setBands, setTotalNumBands } from '../../actions/data';
 
-import request from '../../utils/request';
+import { request } from '../../utils/request';
 
 export function* getBands(action) {
   const requestURL = `http://localhost:3001/bands`;

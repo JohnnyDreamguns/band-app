@@ -1,5 +1,6 @@
 import {
   GET_ALBUM_BY_ID,
+  GET_BAND_BY_ID,
   SET_ALBUM_ID,
   CLEAR_ALBUM_PAGE,
   SET_LOADING
@@ -7,6 +8,11 @@ import {
 
 export const getAlbumById = payload => ({
   type: GET_ALBUM_BY_ID,
+  payload
+});
+
+export const getBandById = payload => ({
+  type: GET_BAND_BY_ID,
   payload
 });
 

@@ -4,7 +4,7 @@ import { setLoading, setBandId, setAlbumIds } from './actions';
 import { setError } from '../../actions/messages';
 import { setBands, setAlbums, setTotalNumAlbums } from '../../actions/data';
 
-import request from '../../utils/request';
+import { request } from '../../utils/request';
 
 export function* getBandById(action) {
   const requestURL = `http://localhost:3001/bands`;
