@@ -21,7 +21,7 @@ export const getBandById = payload => {
     );
 
     if (error) {
-      dispatch(setError(error));
+      dispatch(setError('There was a problem loading the data'));
     } else {
       dispatch(setBands(data[0].results));
       dispatch(setBandId(parseInt(Object.keys(data[0].results)[0])));

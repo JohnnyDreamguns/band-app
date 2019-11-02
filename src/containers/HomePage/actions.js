@@ -21,7 +21,7 @@ export const loadBands = payload => {
     );
 
     if (error) {
-      dispatch(setError(error));
+      dispatch(setError('There was a problem loading the data'));
     } else {
       dispatch(setBands(data.results));
       dispatch(setTotalNumBands(data.totalResults));

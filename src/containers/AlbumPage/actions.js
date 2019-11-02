@@ -24,7 +24,7 @@ export const getAlbumById = payload => {
     );
 
     if (error) {
-      dispatch(setError(error));
+      dispatch(setError('There was a problem loading the data'));
     } else {
       dispatch(setAlbums(data[0].results));
       dispatch(setAlbumId(parseInt(Object.keys(data[0].results)[0])));
