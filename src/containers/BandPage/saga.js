@@ -6,7 +6,7 @@ import { setBands, setAlbums, setTotalNumAlbums } from '../../actions/data';
 
 import { request } from '../../utils/request';
 
-export function* getBandById(action) {
+export function* getBandByIdSaga(action) {
   const requestURL = `http://localhost:3001/bands`;
 
   try {
@@ -34,5 +34,5 @@ export function* getBandById(action) {
 }
 
 export default function* bandpageDataSaga() {
-  yield takeLatest(GET_BAND_BY_ID, getBandById);
+  yield takeLatest(GET_BAND_BY_ID, getBandByIdSaga);
 }

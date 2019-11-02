@@ -40,7 +40,7 @@ export function* getBandByIdSaga(action) {
   yield put(setBands(band.results));
 }
 
-export default function* bandpageDataSaga() {
+export default function* albumpageDataSaga() {
   yield takeLatest(GET_ALBUM_BY_ID, getAlbumByIdSaga);
   yield takeLatest(GET_BAND_BY_ID, getBandByIdSaga);
 }

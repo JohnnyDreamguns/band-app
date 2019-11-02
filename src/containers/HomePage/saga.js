@@ -6,7 +6,7 @@ import { setBands, setTotalNumBands } from '../../actions/data';
 
 import { request } from '../../utils/request';
 
-export function* getBands(action) {
+export function* getBandsSaga(action) {
   const requestURL = `http://localhost:3001/bands`;
 
   try {
@@ -24,5 +24,5 @@ export function* getBands(action) {
 }
 
 export default function* homepageDataSaga() {
-  yield takeLatest(LOAD_BANDS, getBands);
+  yield takeLatest(LOAD_BANDS, getBandsSaga);
 }
