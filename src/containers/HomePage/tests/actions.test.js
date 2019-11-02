@@ -1,3 +1,6 @@
+import sinon from 'sinon';
+import * as apiStub from '../../../services/api';
+import { mockStore } from '../../../utils/mockStore';
 import {
   loadBands,
   setBandIds,
@@ -6,22 +9,92 @@ import {
   clearHomepage
 } from '../actions';
 import {
-  LOAD_BANDS,
   SET_BAND_IDS,
   SET_PAGE_ID,
   SET_LOADING,
   CLEAR_HOME_PAGE
 } from '../constants';
+import { SET_BANDS, SET_TOTAL_NUM_BANDS } from '../../../constants/data';
+import { SET_ERROR } from '../../../constants/messages';
+
+const stubRequest = sinon.stub(apiStub, 'doRequest');
 
 describe('HomePage actions', () => {
-  // describe('loadBands', () => {
-  //   it('should return a LOAD_BANDS action', () => {
-  //     expect(loadBands(2)).toStrictEqual({
-  //       type: LOAD_BANDS,
-  //       payload: 2
-  //     });
-  //   });
-  // });
+  describe('loadBands thunk', () => {
+    it('should dispatch expected actions if all is well', async () => {
+      stubRequest.resolves({
+        results: {
+          2: {
+            id: 2,
+            name: 'A band'
+          },
+          3: {
+            id: 3,
+            name: 'Another band'
+          }
+        },
+        totalResults: 3
+      });
+
+      const store = mockStore();
+      await store.dispatch(loadBands(1));
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual({
+        type: SET_LOADING,
+        payload: true
+      });
+
+      expect(actions[1]).toEqual({
+        type: SET_BANDS,
+        payload: {
+          2: {
+            id: 2,
+            name: 'A band'
+          },
+          3: {
+            id: 3,
+            name: 'Another band'
+          }
+        }
+      });
+
+      expect(actions[2]).toEqual({
+        type: SET_TOTAL_NUM_BANDS,
+        payload: 3
+      });
+
+      expect(actions[3]).toEqual({
+        type: SET_BAND_IDS,
+        payload: [2, 3]
+      });
+
+      expect(actions[4]).toEqual({
+        type: SET_LOADING,
+        payload: false
+      });
+    });
+
+    it('should set error if there is one', async () => {
+      stubRequest.rejects('There was an error');
+
+      const store = mockStore();
+      await store.dispatch(loadBands(1));
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual({
+        type: SET_LOADING,
+        payload: true
+      });
+
+      expect(actions[1].type).toEqual(SET_ERROR);
+
+      expect(actions[2]).toEqual({
+        type: SET_LOADING,
+        payload: false
+      });
+    });
+  });
 
   describe('setBandIds', () => {
     it('should return a SET_BAND_IDS action', () => {
