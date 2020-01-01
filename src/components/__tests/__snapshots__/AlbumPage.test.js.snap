@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AlbumPage /> should match the snapshot 1`] = `
+<div>
+  <div>
+    <h2>
+      Album Name
+    </h2>
+    <p>
+      Released: 
+      2009
+    </p>
+    <p>
+      Back to 
+      <ForwardRef
+        to="/band/1"
+      >
+        Band Name
+      </ForwardRef>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<AlbumPage /> should show loading indicator 1`] = `
+<div>
+  <div
+    className="loader"
+  />
+  <div>
+    <h2>
+      Album Name
+    </h2>
+    <p>
+      Released: 
+      2009
+    </p>
+    <p>
+      Back to 
+      <ForwardRef
+        to="/band/1"
+      >
+        Band Name
+      </ForwardRef>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<AlbumPage /> should show no content if album data is missing 1`] = `<div />`;
+
+exports[`<AlbumPage /> should show no content if band data is missing 1`] = `<div />`;

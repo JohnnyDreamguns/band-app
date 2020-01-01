@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> should match the snapshot 1`] = `
+<div>
+  <p>
+    <ForwardRef
+      to="/band/1"
+    >
+      Band Name
+    </ForwardRef>
+  </p>
+  <button
+    disabled={false}
+  >
+    Previous Page
+  </button>
+  <button
+    disabled={false}
+  >
+    Next Page
+  </button>
+</div>
+`;
+
+exports[`<HomePage /> should show loading indicator 1`] = `
+<div>
+  <div
+    className="loader"
+  />
+  <p>
+    <ForwardRef
+      to="/band/1"
+    >
+      Band Name
+    </ForwardRef>
+  </p>
+  <button
+    disabled={false}
+  >
+    Previous Page
+  </button>
+  <button
+    disabled={false}
+  >
+    Next Page
+  </button>
+</div>
+`;
+
+exports[`<HomePage /> should show no content if band data is missing 1`] = `
+<div>
+  <button
+    disabled={false}
+  >
+    Previous Page
+  </button>
+  <button
+    disabled={false}
+  >
+    Next Page
+  </button>
+</div>
+`;

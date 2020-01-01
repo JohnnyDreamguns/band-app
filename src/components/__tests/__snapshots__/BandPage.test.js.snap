@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BandPage /> should match the snapshot 1`] = `
+<div>
+  <div>
+    <h2>
+      Band Name
+    </h2>
+    <p>
+      Band description
+    </p>
+    <p>
+      Formed: 
+    </p>
+    <br />
+    <h3>
+      Albums
+    </h3>
+    <p>
+      <ForwardRef
+        to="/album/1"
+      >
+        Album Name
+      </ForwardRef>
+    </p>
+    <br />
+    <p>
+      Back to 
+      <ForwardRef
+        to="/"
+      >
+        Home
+      </ForwardRef>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<BandPage /> should show loading indicator 1`] = `
+<div>
+  <div
+    className="loader"
+  />
+  <div>
+    <h2>
+      Band Name
+    </h2>
+    <p>
+      Band description
+    </p>
+    <p>
+      Formed: 
+    </p>
+    <br />
+    <h3>
+      Albums
+    </h3>
+    <p>
+      <ForwardRef
+        to="/album/1"
+      >
+        Album Name
+      </ForwardRef>
+    </p>
+    <br />
+    <p>
+      Back to 
+      <ForwardRef
+        to="/"
+      >
+        Home
+      </ForwardRef>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<BandPage /> should show no albums content if album data is missing 1`] = `
+<div>
+  <div>
+    <h2>
+      Band Name
+    </h2>
+    <p>
+      Band description
+    </p>
+    <p>
+      Formed: 
+    </p>
+    <br />
+    <h3>
+      Albums
+    </h3>
+    <br />
+    <p>
+      Back to 
+      <ForwardRef
+        to="/"
+      >
+        Home
+      </ForwardRef>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<BandPage /> should show no content if band data is missing 1`] = `<div />`;
