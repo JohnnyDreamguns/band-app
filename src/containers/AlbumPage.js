@@ -1,23 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AlbumPage from '../components/AlbumPage';
 import useAlbumData from '../hooks/useAlbumData';
 
 const AlbumPageContainer = props => {
-  const {
-    album,
-    band,
-    loading,
-    fetchAlbumPageData,
-    clearAlbumId
-  } = useAlbumData();
+  const { album, band, loading, useFetchAlbumPageData } = useAlbumData();
   const { albumId } = props.match.params;
 
-  useEffect(() => {
-    fetchAlbumPageData(albumId);
-    return () => {
-      clearAlbumId();
-    };
-  }, [albumId, fetchAlbumPageData, clearAlbumId]);
+  useFetchAlbumPageData(albumId);
 
   const componentProps = {
     album,

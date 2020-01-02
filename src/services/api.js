@@ -102,3 +102,9 @@ export const requests = {
     url: `${ALBUMS_URL}/${params.id}`
   })
 };
+
+const API = {
+  doRequestSequence
+};
+
+export default API;

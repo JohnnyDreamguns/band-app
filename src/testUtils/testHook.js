@@ -8,12 +8,12 @@ const TestHook = ({ callback }) => {
 
 export const testHook = (callback, StoreProvider = null) => {
   if (StoreProvider) {
-    TestRenderer.create(
+    return TestRenderer.create(
       <StoreProvider>
         <TestHook callback={callback} />
       </StoreProvider>
     );
   } else {
-    TestRenderer.create(<TestHook callback={callback} />);
+    return TestRenderer.create(<TestHook callback={callback} />);
   }
 };

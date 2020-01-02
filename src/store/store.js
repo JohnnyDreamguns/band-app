@@ -2,8 +2,8 @@ import { makeStore } from './makeStore';
 
 const initialValue = {
   data: {
-    bands: [],
-    albums: []
+    bands: {},
+    albums: {}
   },
   homePage: {
     bands: [],
