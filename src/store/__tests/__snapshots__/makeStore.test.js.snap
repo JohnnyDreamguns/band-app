@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`makeStore context provider with initialState should match snapshot 1`] = `
+<Context.Provider
+  value={
+    Array [
+      Object {
+        "test": "mock!",
+        "test2": "mock!",
+      },
+      [Function],
+    ]
+  }
+/>
+`;
+
+exports[`makeStore context provider with initialValue should match snapshot 1`] = `
+<Context.Provider
+  value={
+    Array [
+      Object {
+        "tester": "sdsdvd",
+      },
+      [Function],
+    ]
+  }
+/>
+`;
+
+exports[`makeStore context provider with no initialState and no initialValue should match snapshot 1`] = `
+<Context.Provider
+  value={
+    Array [
+      Object {},
+      [Function],
+    ]
+  }
+/>
+`;

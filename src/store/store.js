@@ -24,4 +24,4 @@ const initialValue = {
 
 const { StoreProvider, useStore } = makeStore(initialValue);
 
-export { StoreProvider, useStore };
+export { StoreProvider, useStore, initialValue };

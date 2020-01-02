@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStore } from '../makeStore';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { testHook } from '../../testUtils/testHook';
+import { StoreProvider as SP } from '../../store/store';
 
 const mockState = {
   test: 'mock!',
@@ -9,6 +10,15 @@ const mockState = {
 };
 
 const renderer = new ShallowRenderer();
+
+const { useStore } = makeStore();
+
+let useStoreHook;
+beforeEach(() => {
+  testHook(() => {
+    useStoreHook = useStore();
+  }, SP);
+});
 
 describe('makeStore', () => {
   it('context provider with initialState should match snapshot', () => {
@@ -32,13 +42,11 @@ describe('makeStore', () => {
     expect(renderedOutput).toMatchSnapshot();
   });
 
-  it('should provide a custom hook', () => {
-    const { useStore } = makeStore();
+  it('useStore hook have a setState function', () => {
+    expect(useStoreHook.setState).toEqual(expect.any(Function));
+  });
 
-    testHook(() => {
-      const { state, setState } = useStore();
-      expect(state).toEqual({});
-      expect(typeof setState).toBe('function');
-    });
+  it('useStore hook should return expected value', () => {
+    expect(useStoreHook.state).toStrictEqual({});
   });
 });

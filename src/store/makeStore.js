@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useContext } from 'react';
 
 function makeStore(initialState) {
-  const context = React.createContext();
+  const context = React.createContext([{}, function() {}]);
 
   const StoreProvider = ({ initialValue, children }) => {
     const [state, setState] = useState(initialValue || initialState || {});
@@ -14,7 +14,7 @@ function makeStore(initialState) {
     return { state, setState };
   };
 
-  return { StoreProvider, useStore };
+  return { StoreProvider, useStore, initialState };
 }
 
 export { makeStore };

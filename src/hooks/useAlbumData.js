@@ -109,10 +109,12 @@ export const useBandData = () => {
   );
 
   return {
+    albumId,
     album,
     band,
     loading,
     fetchAlbumPageData,
+    setAlbumId,
     clearAlbumId
   };
 };
