@@ -6,7 +6,7 @@ export const useGlobalData = () => {
   const { state, setState } = useStore();
 
   // Properties
-  const bandsData = useMemo(() => state.data.bands || [], [state.data.bands]);
+  const bandsData = useMemo(() => state.data.bands, [state.data.bands]);
 
   const totalNumBands = useMemo(() => state.data.totalNumBands, [
     state.data.totalNumBands

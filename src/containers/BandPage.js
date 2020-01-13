@@ -1,23 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import BandPage from '../components/BandPage';
 import useBandData from '../hooks/useBandData';
 
 const BandPageContainer = props => {
-  const {
-    band,
-    loading,
-    albums,
-    fetchBandPageData,
-    clearBandId
-  } = useBandData();
+  const { band, loading, albums, useFetchBandPageData } = useBandData();
   const { bandId } = props.match.params;
 
-  useEffect(() => {
-    fetchBandPageData(bandId);
-    return () => {
-      clearBandId();
-    };
-  }, [fetchBandPageData, bandId, clearBandId]);
+  useFetchBandPageData(bandId);
 
   const componentProps = {
     band,

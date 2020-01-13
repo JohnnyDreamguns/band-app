@@ -1,5 +1,5 @@
 // React
-import React, { useEffect } from 'react';
+import React from 'react';
 import HomePage from '../components/HomePage';
 import useHomeData from '../hooks/useHomeData';
 
@@ -9,14 +9,12 @@ const HomePageContainer = () => {
     page,
     loading,
     numOfPages,
-    fetchBands,
+    useFetchHomePageData,
     setNextPage,
     setPreviousPage
   } = useHomeData();
 
-  useEffect(() => {
-    fetchBands(page);
-  }, [fetchBands, page]);
+  useFetchHomePageData(page);
 
   const componentProps = {
     bands,
