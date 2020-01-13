@@ -1,4 +1,3 @@
-import React, { useMemo, useState } from 'react';
 import { testHook } from '../../testUtils/testHook';
 import useAlbumData from '../useAlbumData';
 import API from '../../services/api';
@@ -178,6 +177,7 @@ describe('useAlbumData hook', () => {
     it('should call clearAlbumId on unmount', async () => {
       const mockClearAlbumId = jest.fn();
       hook.clearAlbumId = mockClearAlbumId;
+      hook.fetchAlbumPageData = jest.fn();
 
       let th;
       act(() => {

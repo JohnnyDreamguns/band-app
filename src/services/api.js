@@ -104,6 +104,8 @@ export const requests = {
 };
 
 const API = {
+  doRequest,
+  doRequestMulti,
   doRequestSequence
 };
 

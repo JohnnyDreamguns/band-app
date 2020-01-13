@@ -30,9 +30,24 @@ export const requests = {
       5: 'mock band'
     }
   }),
-  getAllBands: () => ({}),
-  getBandsByPage: params => ({}),
-  getAlbumsByBandId: params => ({}),
+  getAllBands: () => ({
+    results: {
+      5: 'mock band',
+      6: 'another band'
+    }
+  }),
+  getBandsByPage: params => ({
+    results: {
+      5: 'mock band',
+      6: 'another band'
+    }
+  }),
+  getAlbumsByBandId: params => ({
+    results: {
+      2: 'mock album',
+      3: 'another album'
+    }
+  }),
   getAlbumById: () => ({
     results: {
       2: 'mock album'

@@ -1,7 +1,7 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useEffect } from 'react';
 import produce from 'immer';
 import { useStore } from '../store/store';
-import { doRequest } from '../services/api';
+import API from '../services/api';
 import { catchErrors } from '../utils/catchErrors';
 import { useGlobalData } from './useGlobalData';
 import { useMessages } from './useMessages';
@@ -16,6 +16,12 @@ const useHomeData = () => {
     state.homePage.bands
   ]);
 
+  const bands = useMemo(
+    () =>
+      bandIds.filter(x => bandsData[x]).map(bandId => bandsData[`${bandId}`]),
+    [bandIds, bandsData]
+  );
+
   const page = useMemo(() => state.homePage.page, [state.homePage.page]);
 
   const loading = useMemo(() => state.homePage.loading, [
@@ -25,12 +31,6 @@ const useHomeData = () => {
   const numOfPages = useMemo(
     () => totalNumBands && Math.ceil(totalNumBands / 3),
     [totalNumBands]
-  );
-
-  const bands = useMemo(
-    () =>
-      bandIds.filter(x => bandsData[x]).map(bandId => bandsData[`${bandId}`]),
-    [bandIds, bandsData]
   );
 
   // Functions
@@ -86,37 +86,47 @@ const useHomeData = () => {
     [state.homePage.page, setPage]
   );
 
-  const fetchBands = useCallback(
-    async page => {
-      setLoading(true);
-      const { data, error } = await catchErrors(
-        doRequest({
-          endpoint: 'getBandsByPage',
-          params: { page }
-        })
-      );
+  const fetchHomePageData = async page => {
+    exported.setLoading(true);
+    const { data, error } = await catchErrors(
+      API.doRequest({
+        endpoint: 'getBandsByPage',
+        params: { page }
+      })
+    );
 
-      if (!error) {
-        setBandKeys(data);
-        setGlobalBands(data);
-      } else {
-        setErrorObject(error);
-      }
+    if (!error) {
+      exported.setBandKeys(data);
+      setGlobalBands(data);
+    } else {
+      setErrorObject(error);
+    }
 
-      setLoading(false);
-    },
-    [setLoading, setBandKeys, setGlobalBands, setErrorObject]
-  );
+    exported.setLoading(false);
+  };
 
-  return {
+  const useFetchHomePageData = page => {
+    useEffect(() => {
+      exported.fetchHomePageData(page);
+    }, [page]);
+  };
+
+  const exported = {
+    bandIds,
     bands,
     page,
     loading,
     numOfPages,
+    setLoading,
+    setBandKeys,
+    setPage,
     setNextPage,
     setPreviousPage,
-    fetchBands
+    fetchHomePageData,
+    useFetchHomePageData
   };
+
+  return exported;
 };
 
 export default useHomeData;

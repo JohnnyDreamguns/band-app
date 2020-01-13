@@ -1,7 +1,7 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useEffect } from 'react';
 import produce from 'immer';
 import { useStore } from '../store/store';
-import { doRequestMulti } from '../services/api';
+import API from '../services/api';
 import { catchErrors } from '../utils/catchErrors';
 import { useGlobalData } from './useGlobalData';
 import { useMessages } from './useMessages';
@@ -21,10 +21,6 @@ export const useBandData = () => {
     state.bandPage.bandId
   ]);
 
-  const loading = useMemo(() => state.bandPage.loading, [
-    state.bandPage.loading
-  ]);
-
   const band = useMemo(() => bandsData[`${bandId}`], [bandId, bandsData]);
 
   const albumIds = useMemo(() => state.bandPage.albums, [
@@ -38,6 +34,10 @@ export const useBandData = () => {
         .map(albumId => albumsData[`${albumId}`]),
     [albumIds, albumsData]
   );
+
+  const loading = useMemo(() => state.bandPage.loading, [
+    state.bandPage.loading
+  ]);
 
   // Functions
   const setLoading = useCallback(
@@ -93,44 +93,51 @@ export const useBandData = () => {
     );
   }, [setState]);
 
-  const fetchBandPageData = useCallback(
-    async bandId => {
-      setLoading(true);
-      const { data, error } = await catchErrors(
-        doRequestMulti(
-          { endpoint: 'getBandById', params: { id: bandId } },
-          { endpoint: 'getAlbumsByBandId', params: { id: bandId } }
-        )
-      );
+  const fetchBandPageData = async bandId => {
+    exported.setLoading(true);
+    const { data, error } = await catchErrors(
+      API.doRequestMulti(
+        { endpoint: 'getBandById', params: { id: bandId } },
+        { endpoint: 'getAlbumsByBandId', params: { id: bandId } }
+      )
+    );
 
-      if (!error) {
-        setBandId(data[0]);
-        setGlobalBands(data[0]);
-        setAlbumKeys(data[1]);
-        setGlobalAlbums(data[1]);
-      } else {
-        setErrorObject(error);
-      }
+    if (!error) {
+      exported.setBandId(data[0]);
+      setGlobalBands(data[0]);
+      exported.setAlbumKeys(data[1]);
+      setGlobalAlbums(data[1]);
+    } else {
+      setErrorObject(error);
+    }
 
-      setLoading(false);
-    },
-    [
-      setLoading,
-      setBandId,
-      setGlobalBands,
-      setAlbumKeys,
-      setGlobalAlbums,
-      setErrorObject
-    ]
-  );
+    exported.setLoading(false);
+  };
 
-  return {
+  const useFetchBandPageData = bandId => {
+    useEffect(() => {
+      exported.fetchBandPageData(bandId);
+      return () => {
+        exported.clearBandId();
+      };
+    }, [bandId]);
+  };
+
+  const exported = {
+    bandId,
     band,
+    albumIds,
     albums,
     loading,
+    setLoading,
+    setBandId,
+    setAlbumKeys,
+    clearBandId,
     fetchBandPageData,
-    clearBandId
+    useFetchBandPageData
   };
+
+  return exported;
 };
 
 export default useBandData;
