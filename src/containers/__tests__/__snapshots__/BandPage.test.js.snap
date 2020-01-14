@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BandPage container should match the props sent to the component 1`] = `
+Object {
+  "albums": Object {
+    "map": [Function],
+  },
+  "band": "mock band",
+  "loading": true,
+}
+`;

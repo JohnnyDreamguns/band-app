@@ -55,5 +55,3 @@ export const useMessages = () => {
     setInfo
   };
 };
-
-export default useMessages;

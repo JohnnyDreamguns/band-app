@@ -132,5 +132,3 @@ export const useAlbumData = () => {
 
   return exported;
 };
-
-export default useAlbumData;

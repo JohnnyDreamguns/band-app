@@ -139,5 +139,3 @@ export const useBandData = () => {
 
   return exported;
 };
-
-export default useBandData;

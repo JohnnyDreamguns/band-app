@@ -28,4 +28,4 @@ const BandPage = ({ band, albums, loading }) => (
   </div>
 );
 
-export default BandPage;
+export default React.memo(BandPage);

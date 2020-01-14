@@ -6,15 +6,13 @@ import { catchErrors } from '../utils/catchErrors';
 import { useGlobalData } from './useGlobalData';
 import { useMessages } from './useMessages';
 
-const useHomeData = () => {
+export const useHomeData = () => {
   const { state, setState } = useStore();
   const { bandsData, totalNumBands, setGlobalBands } = useGlobalData();
   const { setErrorObject } = useMessages();
 
   // Properties
-  const bandIds = useMemo(() => state.homePage.bands || [], [
-    state.homePage.bands
-  ]);
+  const bandIds = useMemo(() => state.homePage.bands, [state.homePage.bands]);
 
   const bands = useMemo(
     () =>
@@ -128,5 +126,3 @@ const useHomeData = () => {
 
   return exported;
 };
-
-export default useHomeData;

@@ -19,7 +19,7 @@ const initialValue = {
     albumId: undefined,
     loading: false
   },
-  messages: []
+  messages: {}
 };
 
 const { StoreProvider, useStore } = makeStore(initialValue);

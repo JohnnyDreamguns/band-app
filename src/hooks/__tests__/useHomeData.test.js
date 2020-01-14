@@ -1,5 +1,5 @@
 import { testHook } from '../../testUtils/testHook';
-import useHomeData from '../useHomeData';
+import { useHomeData } from '../useHomeData';
 import API from '../../services/api';
 import { StoreProvider, initialValue } from '../../store/store';
 import TestRenderer from 'react-test-renderer';
@@ -26,7 +26,8 @@ jest.mock('../useGlobalData', () => ({
       }
     },
     setGlobalAlbums: mockSetGlobalAlbums,
-    setGlobalBands: mockSetGlobalBands
+    setGlobalBands: mockSetGlobalBands,
+    totalNumBands: 9
   })
 }));
 
@@ -110,6 +111,12 @@ describe('useHomeData hook', () => {
         hook.setLoading(true);
       });
       expect(hook.loading).toBe(true);
+    });
+  });
+
+  describe('numOfPages prop', () => {
+    it('should have a numOfPages prop that has an initial value', () => {
+      expect(hook.numOfPages).toBe(3);
     });
   });
 

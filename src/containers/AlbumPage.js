@@ -1,6 +1,6 @@
 import React from 'react';
 import AlbumPage from '../components/AlbumPage';
-import useAlbumData from '../hooks/useAlbumData';
+import { useAlbumData } from '../hooks/useAlbumData';
 
 const AlbumPageContainer = props => {
   const { album, band, loading, useFetchAlbumPageData } = useAlbumData();

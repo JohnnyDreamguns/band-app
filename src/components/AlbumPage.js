@@ -18,4 +18,4 @@ const AlbumPage = ({ loading, album, band }) => (
   </div>
 );
 
-export default AlbumPage;
+export default React.memo(AlbumPage);

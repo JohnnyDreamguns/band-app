@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage container should match the props sent to the component 1`] = `
+Object {
+  "actions": Object {
+    "setNextPage": [Function],
+    "setPreviousPage": [Function],
+  },
+  "bands": Object {
+    "map": [Function],
+  },
+  "loading": true,
+  "numOfPages": 3,
+  "page": 2,
+}
+`;

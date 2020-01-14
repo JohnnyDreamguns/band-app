@@ -21,4 +21,4 @@ const HomePage = ({ bands, loading, page, numOfPages, actions }) => (
   </div>
 );
 
-export default HomePage;
+export default React.memo(HomePage);

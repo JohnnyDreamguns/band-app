@@ -1,7 +1,7 @@
 // React
 import React from 'react';
 import HomePage from '../components/HomePage';
-import useHomeData from '../hooks/useHomeData';
+import { useHomeData } from '../hooks/useHomeData';
 
 const HomePageContainer = () => {
   const {

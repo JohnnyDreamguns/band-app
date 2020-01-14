@@ -9,4 +9,4 @@ const MessageDialog = ({ messages }) => (
   </React.Fragment>
 );
 
-export default MessageDialog;
+export default React.memo(MessageDialog);

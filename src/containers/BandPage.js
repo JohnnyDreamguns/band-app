@@ -1,6 +1,6 @@
 import React from 'react';
 import BandPage from '../components/BandPage';
-import useBandData from '../hooks/useBandData';
+import { useBandData } from '../hooks/useBandData';
 
 const BandPageContainer = props => {
   const { band, loading, albums, useFetchBandPageData } = useBandData();

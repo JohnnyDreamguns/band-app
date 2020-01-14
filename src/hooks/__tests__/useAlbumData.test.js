@@ -1,5 +1,5 @@
 import { testHook } from '../../testUtils/testHook';
-import useAlbumData from '../useAlbumData';
+import { useAlbumData } from '../useAlbumData';
 import API from '../../services/api';
 import { StoreProvider, initialValue } from '../../store/store';
 import TestRenderer from 'react-test-renderer';
