@@ -10,7 +10,7 @@ jest.mock('../../hooks/useBandData', () => ({
   useBandData: () => ({
     band: 'mock band',
     albumIds: 'mock albumIds',
-    albums: { map: () => 'mock album' },
+    albums: [{ id: 1, name: 'mock album' }],
     loading: true,
     setLoading: 'mock setLoading',
     setBandId: 'mock setBandId',

@@ -6,9 +6,12 @@ Object {
     "setNextPage": [Function],
     "setPreviousPage": [Function],
   },
-  "bands": Object {
-    "map": [Function],
-  },
+  "bands": Array [
+    Object {
+      "id": 3,
+      "name": "mock band",
+    },
+  ],
   "loading": true,
   "numOfPages": 3,
   "page": 2,

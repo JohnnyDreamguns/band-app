@@ -9,7 +9,7 @@ const mockUseFetchHomePageData = jest.fn();
 jest.mock('../../hooks/useHomeData', () => ({
   useHomeData: () => ({
     bandIds: 'mock bandIds',
-    bands: { map: () => 'mock bands' },
+    bands: [{ id: 3, name: 'mock band' }],
     page: 2,
     loading: true,
     numOfPages: 3,
